@@ -26,6 +26,16 @@ module.exports = {
         test: /\.(png|jpg|gif|webp)$/, // Test for image files
         type: 'asset/resource', // Handle them as asset/resource type
       },
+      {
+        test: /\.(js|jsx)$/, // Test for .js and .jsx files
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'], // Use these presets for React and ES6+ support
+          },
+        },
+      },
     ],
   },
 
@@ -35,5 +45,7 @@ module.exports = {
     }),
   ],
 
-
+  resolve: {
+    extensions: ['.js', '.jsx'], // Resolve these extensions
+  },
 };
