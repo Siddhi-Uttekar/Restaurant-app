@@ -70,6 +70,12 @@ const RestaurantCard = ({ resData }) =>{
     )
 }
 
+fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+
+
+
 const resObj = [
     {
         info: {
@@ -325,6 +331,9 @@ info: {
 //         </div>
 //     )
 // }
+
+//alwys use key
+//always use unique id ... dont use index no recommended
 
 const Body = () => {
     return(
