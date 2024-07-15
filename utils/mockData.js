@@ -3,7 +3,7 @@ const resObj = [
         info: {
             id: "427774",
             name: "Chaayos Chai+Snacks=Relax",
-            cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/dfbcecfc-b380-4648-930a-b9b56b21e781_427774.JPG",
+            cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/dfbcecfc-b380-4648-930a-b9b56b21e781_427774.JPG",
             locality: "Maan Road",
             areaName: "Hinjawadi",
             costForTwo: "₹250 for two",
@@ -37,7 +37,7 @@ const resObj = [
     info: {
         id: "372386",
         name: "The Brooklyn Creamery - Healthy Ice Cream",
-        cloudinaryImageId: "b1b35780a9b1dfeb26d680506d494eaa",
+        cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/b1b35780a9b1dfeb26d680506d494eaa",
         locality: "Times Square",
         areaName: "Hinjawadi",
         costForTwo: "₹200 for two",
@@ -71,7 +71,7 @@ const resObj = [
         info: {
           id: "263879",
           name: "Pure Veg Meals by LunchBox",
-          cloudinaryImageId: "cz9mwuypqm7k5dqmpeta",
+          cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/cz9mwuypqm7k5dqmpeta",
           locality: "Bhatewara nagar",
           areaName: "Hinjewadi",
           costForTwo: "₹200 for two",
@@ -104,7 +104,7 @@ const resObj = [
 info: {
                       id: "566465",
                       name: "Faasos' Signature Wraps & Rolls",
-                      cloudinaryImageId: "c583ca6ce40b426797a78ae2ac91f2ec",
+                      cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_112,h_112,c_fill/c583ca6ce40b426797a78ae2ac91f2ec",
                       locality: "Bhatewara nagar",
                       areaName: "Hinjawadi",
                       costForTwo: "₹350 for two",
@@ -138,7 +138,7 @@ info: {
     info: {
                       id: "608949",
                       name: "GetAWay-Ice Creams & Desserts",
-                      cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/7/9/83ab1ee5-296d-4837-a357-fc3f648e4ed2_608949.jpg",
+                      cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_112,h_112,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/9/5f0dd5f4-7fe4-4dcf-802b-4b5a63c43520_385368.jpg",
                       locality: "Vantagio",
                       areaName: "Wakad",
                       costForTwo: "₹200 for two",
@@ -172,7 +172,7 @@ info: {
     info: {
                       id: "558827",
                       name: "HRX by EatFit",
-                      cloudinaryImageId: "d8d85afa5c5e92461d30ff2ca867a587",
+                      cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/d8d85afa5c5e92461d30ff2ca867a587",
                       locality: "Opp Yes bank, Nr. H P Gas",
                       areaName: "Hinjawadi",
                       costForTwo: "₹450 for two",
@@ -205,7 +205,7 @@ info: {
     info: {
                       id: "695669",
                       name: "Ovenfresh Cakes And Desserts",
-                      cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/6/19/99182d1b-7399-431b-b68a-2cdf0456ae21_695669.jpg",
+                      cloudinaryImageId: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/30/90f2416f-6346-42fe-8157-383100e432a3_878750.jpg",
                       locality: "Hinjewadi Wakad Road",
                       areaName: "Hinjewadi",
                       costForTwo: "₹200 for two",

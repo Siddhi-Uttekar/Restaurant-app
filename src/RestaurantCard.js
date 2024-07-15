@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 const RestaurantCard = ({ resData }) =>{
     return(
         <div className='res-card' style = {{backgroundColor:"rgb(220, 224, 191)"}}>
-          <img className='res-logo' src={`RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/dfbcecfc-b380-4648-930a-b9b56b21e781_427774.JPG`}></img>
+          <img className='res-logo' src={resData.cloudinaryImageId}></img>
           <h3>{resData.name}</h3>
           <h4>{resData.cuisines.join(', ')}</h4>
           <h4>{resData.avgRating} stars</h4>
