@@ -23,7 +23,16 @@ import resObj from '../../utils/mockData';
 const Body = () => {
     return(
         <div className='body'>
-            <div className='search'>Search</div>
+            <div className='filter'>
+                <button className='filter-btn'
+                 onClick={() => {
+                    alert("button clicked")
+                }}
+                    >
+                    Top Rated Restaurants
+
+                </button>
+            </div>
             <div className='res-container'>
             {resObj.map((res) => (
                    <RestaurantCard resData={res.info} key={res.info.id} />
@@ -31,8 +40,8 @@ const Body = () => {
             </div>
 
         </div>
-    )
-}
+    );
+};
 
 
 export default Body;
