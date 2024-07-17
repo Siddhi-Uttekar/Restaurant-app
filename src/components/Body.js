@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client';
 import RestaurantCard from '../RestaurantCard';
 import resObj from '../../utils/mockData';
+import {useState} from 'react';
 
 // const Body = () => {
 //     return(
@@ -21,12 +22,21 @@ import resObj from '../../utils/mockData';
 //always use unique id ... dont use index no recommended
 
 const Body = () => {
+ //local state variable
+const [listofRestaurants, setListOfRestaurant] = useState(resObj);
+
+
+
     return(
         <div className='body'>
             <div className='filter'>
                 <button className='filter-btn'
                  onClick={() => {
-                    alert("button clicked")
+                   const filteredList = listofRestaurants.filter(
+
+                    (res) => res.info.avgRating > 5
+                   );
+                   setListOfRestaurant(filteredList);
                 }}
                     >
                     Top Rated Restaurants
@@ -34,9 +44,12 @@ const Body = () => {
                 </button>
             </div>
             <div className='res-container'>
-            {resObj.map((res) => (
+            {/* {resObj.map((res) => (
                    <RestaurantCard resData={res.info} key={res.info.id} />
-               ))}
+               ))} */}
+               {listofRestaurants.map((res) => (
+                    <RestaurantCard resData={res.info} key={res.info.id} />
+                ))}
             </div>
 
         </div>
