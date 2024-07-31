@@ -102,20 +102,20 @@ useEffect(() => {
                 },    [])
 
                 const fetchData = async () => {
-                    try {
-                      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-                      const data = await response.json();
-                      console.log(data)
+                                       const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+
+                                       );
+                      const json = await response.json();
+                      console.log(json)
 
 
-        const cards = data.data.cards;
-        console.log('Cards:', cards); // Inspect the array of cards
+
+ setListOfRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants.map(restaurant => restaurant.info))
 
 
-                }
-                catch (error) {
-                      console.error('Error fetching data:', error);
-                    }
+
+
+
                   };
 
     return(
@@ -135,7 +135,7 @@ useEffect(() => {
             </div>
             <div className='res-container'>
                {listofRestaurants.map((res) => (
-                    <RestaurantCard resData={res.info} key={res.info.id} />
+                    <RestaurantCard resData={res} key={res.id} />
                 ))}
             </div>
 
