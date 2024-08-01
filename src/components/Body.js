@@ -75,6 +75,8 @@ import React from 'react'
 import RestaurantCard from './RestaurantCard';
 import resObj from '../../utils/mockData';
 import {useState, useEffect} from 'react';
+import Shimmer from './Shimmer';
+
 
 // const Body = () => {
 //     return(
@@ -110,7 +112,7 @@ useEffect(() => {
 
 
 
- setListOfRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants.map(restaurant => restaurant.info))
+ setListOfRestaurant(json.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info))
 
 
 
@@ -118,13 +120,19 @@ useEffect(() => {
 
                   };
 
+                  //conditional rendering
+                  if(listofRestaurants.length == 0){
+
+                    return <Shimmer/>
+                  }
+
     return(
         <div className='body'>
             <div className='filter'>
                 <button className='filter-btn'
                  onClick={() => {
                    const filteredList = listofRestaurants.filter(
-                    (res) => res.info.avgRating > 4.4
+                    (res) => res.avgRating > 4
                    );
                    setListOfRestaurant(filteredList);
                 }}
