@@ -99,34 +99,22 @@ const Body = () => {
 const [listofRestaurants, setListOfRestaurant] = useState([]);
 
 //takes function and parameter
-useEffect(() => {
-        fetchData();
-                },    [])
+useEffect(() => { fetchData();},  [])
 
-                const fetchData = async () => {
-                                       const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    const fetchData = async () => {
+        const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+                                     );
+            const json = await response.json();
+            console.log(json)
 
-                                       );
-                      const json = await response.json();
-                      console.log(json)
+        setListOfRestaurant(json.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info))
 
+                                  };
 
+     //conditional rendering
 
- setListOfRestaurant(json.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info))
-
-
-
-
-
-                  };
-
-                  //conditional rendering
-                  if(listofRestaurants.length == 0){
-
-                    return <Shimmer/>
-                  }
-
-    return(
+    return listofRestaurants.length == 0 ? <Shimmer/>
+    :(
         <div className='body'>
             <div className='filter'>
                 <button className='filter-btn'
