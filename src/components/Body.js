@@ -97,6 +97,10 @@ import Shimmer from './Shimmer';
 const Body = () => {
  //local state variable
 const [listofRestaurants, setListOfRestaurant] = useState([]);
+const [searchlistofRestaurants, setSearchListOfRestaurant] = useState([]);
+//binding the value with searchtext(local state variable)
+//imppp - whenever local variable/ state variable changes react re renders whole component
+const [searchText, setSearchText] = useState("");
 
 //takes function and parameter
 useEffect(() => { fetchData();},  [])
@@ -107,7 +111,8 @@ useEffect(() => { fetchData();},  [])
             const json = await response.json();
             console.log(json)
 
-        setListOfRestaurant(json.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info))
+        setListOfRestaurant(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info));
+        setSearchListOfRestaurant(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info))
 
                                   };
 
@@ -117,6 +122,24 @@ useEffect(() => { fetchData();},  [])
     :(
         <div className='body'>
             <div className='filter'>
+
+              <div className='search'>
+                <input type='text' className='search-box'
+                value={searchText}
+                onChange={(e)=> {setSearchText(e.target.value)}}
+                ></input>
+                <button onClick={() =>{
+                    const filteredRestaurant = listofRestaurants.filter((res)=>
+                        res.name.toLowerCase().includes(searchText.toLowerCase())
+
+                    );
+
+                    setSearchListOfRestaurant(filteredRestaurant);
+                }}
+
+                >Search</button>
+              </div>
+
                 <button className='filter-btn'
                  onClick={() => {
                    const filteredList = listofRestaurants.filter(
@@ -130,7 +153,7 @@ useEffect(() => { fetchData();},  [])
                 </button>
             </div>
             <div className='res-container'>
-               {listofRestaurants.map((res) => (
+               {searchlistofRestaurants.map((res) => (
                     <RestaurantCard resData={res} key={res.id} />
                 ))}
             </div>

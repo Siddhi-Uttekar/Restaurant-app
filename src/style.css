@@ -73,3 +73,11 @@
 .log-btn{
     width: 5rem;
 }
+
+.filter{
+    display: flex;
+}
+
+.search{
+    padding: 7px;
+}
