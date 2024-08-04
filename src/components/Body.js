@@ -38,8 +38,8 @@ useEffect(() => { fetchData();},  [])
             const json = await response.json();
             console.log(json)
 
-        setListOfRestaurant(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info));
-        setSearchListOfRestaurant(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info))
+        setListOfRestaurant(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info));
+        setSearchListOfRestaurant(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info))
 
                                   };
 
