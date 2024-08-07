@@ -31,7 +31,7 @@ import RestauarntMenu from './components/RestaurantMenu.js';
 
 const AppLayout = () => {
     return (
-        <div className="app">
+        <div className="AppLayout">
             <Header/>
             <Outlet/>
         </div>
@@ -42,18 +42,17 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <Error/>,
     children : [
 
       {
         path: "/",
         element: <Body />,
       },
-
-
-  {
-    path: "/about",
-    element: <About />,
-  },
+      {
+        path: "/about",
+        element: <About />,
+      },
 
   {
     path: "/contact",
@@ -66,7 +65,7 @@ const appRouter = createBrowserRouter([
   },
 
     ],
-    errorElement: <Error/>,
+
   },
 
 ]);
