@@ -1,9 +1,8 @@
-import React from 'react'
-import RestaurantCard from './RestaurantCard';
-import resObj from '../../utils/mockData';
-import {useState, useEffect} from 'react';
-import Shimmer from './Shimmer';
-
+import React from "react";
+import RestaurantCard from "./RestaurantCard";
+import resObj from "../../utils/mockData";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 // const Body = () => {
 //     return(
@@ -22,72 +21,85 @@ import Shimmer from './Shimmer';
 //always use unique id ... dont use index no recommended
 
 const Body = () => {
- //local state variable
-const [listofRestaurants, setListOfRestaurant] = useState([]);
-const [searchlistofRestaurants, setSearchListOfRestaurant] = useState([]);
-//binding the value with searchtext(local state variable)
-//imppp - whenever local variable/ state variable changes react re renders whole component
-const [searchText, setSearchText] = useState("");
+	//local state variable
+	const [listofRestaurants, setListOfRestaurant] = useState([]);
+	const [searchlistofRestaurants, setSearchListOfRestaurant] = useState([]);
+	//binding the value with searchtext(local state variable)
+	//imppp - whenever local variable/ state variable changes react re renders whole component
+	const [searchText, setSearchText] = useState("");
 
-//takes function and parameter
-useEffect(() => { fetchData();},  [])
+	//takes function and parameter
+	useEffect(() => {
+		fetchData();
+	}, []);
 
-    const fetchData = async () => {
-        const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-                                     );
-            const json = await response.json();
-            console.log(json)
+	const fetchData = async () => {
+		const response = await fetch(
+			"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+		);
+		const json = await response.json();
+		console.log(json);
 
-        setListOfRestaurant(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info));
-        setSearchListOfRestaurant(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(restaurant => restaurant.info))
+		setListOfRestaurant(
+			json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
+				(restaurant) => restaurant.info
+			)
+		);
+		setSearchListOfRestaurant(
+			json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
+				(restaurant) => restaurant.info
+			)
+		);
+	};
 
-                                  };
+	//conditional rendering
+	return listofRestaurants.length == 0 ? (
+		<Shimmer />
+	) : (
+		<div className="body">
+			<div className="filter">
+				<div className="search">
+					<input
+						type="text"
+						className="search-box"
+						value={searchText}
+						onChange={(e) => {
+							setSearchText(e.target.value);
+						}}
+					></input>
 
-     //conditional rendering
-    return listofRestaurants.length == 0 ? <Shimmer/>
-    :(
-        <div className='body'>
-            <div className='filter'>
+					<button
+						onClick={() => {
+							const filteredRestaurant = listofRestaurants.filter((res) =>
+								res.name.toLowerCase().includes(searchText.toLowerCase())
+							);
 
-              <div className='search'>
-                <input type='text' className='search-box'
-                value={searchText}
-                onChange={(e)=> {setSearchText(e.target.value)}}
-                ></input>
+							setSearchListOfRestaurant(filteredRestaurant);
+						}}
+					>
+						Search
+					</button>
+				</div>
 
-                <button onClick={() =>{
-                    const filteredRestaurant = listofRestaurants.filter((res)=>
-                        res.name.toLowerCase().includes(searchText.toLowerCase())
-
-                    );
-
-                    setSearchListOfRestaurant(filteredRestaurant);
-                }}
-
-                >Search</button>
-              </div>
-
-                <button className='filter-btn'
-                 onClick={() => {
-                   const filteredList = listofRestaurants.filter(
-                    (res) => res.avgRating > 4
-                   );
-                   setListOfRestaurant(filteredList);
-                }}
-                    >
-                    Top Rated Restaurants
-
-                </button>
-            </div>
-            <div className='res-container'>
-               {searchlistofRestaurants.map((res) => (
-                    <RestaurantCard resData={res} key={res.id} />
-                ))}
-            </div>
-
-        </div>
-    );
+				<button
+					className="filter-btn"
+					onClick={() => {
+						const filteredList = listofRestaurants.filter(
+							(res) => res.avgRating > 4
+						);
+						setListOfRestaurant(filteredList);
+					}}
+				>
+					Top Rated Restaurants
+				</button>
+			</div>
+			<div className="res-container">
+				{searchlistofRestaurants.map((res) => (
+					<RestaurantCard resData={res} key={res.id} />
+				))}
+			</div>
+		</div>
+	);
 };
-
 
 export default Body;
