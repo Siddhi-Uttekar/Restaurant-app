@@ -27,7 +27,7 @@ const RestauarntMenu  = () =>{
         <div>
             <h1>name of restaurant{resInfo?.cards[2].card.card.info.name}</h1>
             <h2>recommended</h2>
-            {/* <h2>{resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards[0].card.info.name}</h2> */}
+            <h2>{resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards[0].card.info.name}</h2>
             {/* <h2>{resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[0].card.info.price}</h2>
 
             <h2>{resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.info.name}</h2>
