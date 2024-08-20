@@ -21,13 +21,13 @@ import ReactDOM from 'react-dom/client';
 import '../style.css';
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
-
-import RestaurantCard from './components/RestaurantCard.js';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import About from "./components/About.js"
 import Contact from "./components/Contact.js"
 import Error from "./components/Error.js"
 import RestauarntMenu from './components/RestaurantMenu.js';
+
+//chunking, cod splitting, dynamic bundling, lazy loading, on demand loading
 
 const AppLayout = () => {
     return (
