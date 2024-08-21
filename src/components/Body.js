@@ -78,7 +78,7 @@ useEffect(() => { fetchData();},  [])
                    const filteredList = listofRestaurants.filter(
                     (res) => res.avgRating > 4
                    );
-                   setListOfRestaurant(filteredList);
+                   setSearchListOfRestaurant(filteredList);
                 }}
                     >
                     Top Rated Restaurants
@@ -88,7 +88,7 @@ useEffect(() => { fetchData();},  [])
               </div>
 
             </div>
-            <div className='res-container'>
+            <div className=' res-container flex flex-wrap p-2 m-2 gap-4'>
                {searchlistofRestaurants.map((res) => (
                     <Link key={res.id}  to={"/restaurants/" + res.id }><RestaurantCard resData={res} /></Link>
                 ))}
