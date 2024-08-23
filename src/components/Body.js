@@ -1,5 +1,5 @@
 import React from 'react'
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard , {withPromotedLabel} from './RestaurantCard';
 import {useState, useEffect} from 'react';
 import Shimmer from './Shimmer';
 import {Link} from "react-router-dom";
@@ -28,6 +28,8 @@ const [searchlistofRestaurants, setSearchListOfRestaurant] = useState([]);
 //binding the value with searchtext(local state variable)
 //imppp - whenever local variable/ state variable changes react re renders whole component
 const [searchText, setSearchText] = useState("");
+
+const RestauarntCardPromoted = withPromotedLabel(RestaurantCard);
 
 //takes function and parameter
 useEffect(() => { fetchData();},  [])
@@ -90,7 +92,10 @@ useEffect(() => { fetchData();},  [])
             </div>
             <div className=' res-container flex flex-wrap p-2 m-2 gap-4'>
                {searchlistofRestaurants.map((res) => (
-                    <Link key={res.id}  to={"/restaurants/" + res.id }><RestaurantCard resData={res} /></Link>
+                    <Link key={res.id}  to={"/restaurants/" + res.id }>
+                       {/* {res.data.promoted ? ( <RestauarntCardPromoted resData={res}/>) : ( <RestaurantCard resData={res} />   )} */}
+                       <RestaurantCard resData={res} />
+                       </Link>
                 ))}
             </div>
 
