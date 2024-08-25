@@ -26,16 +26,24 @@ import About from "./components/About.js"
 import Contact from "./components/Contact.js"
 import Error from "./components/Error.js"
 import RestauarntMenu from './components/RestaurantMenu.js';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore.js';
+import Cart from './components/Cart.js';
 
 //chunking, cod splitting, dynamic bundling, lazy loading, on demand loading
 
 const AppLayout = () => {
+
     return (
+      <Provider store={appStore}>
         <div className="AppLayout">
             <Header/>
             <Outlet/>
         </div>
+        </Provider>
     )
+
+
 };
 
 const appRouter = createBrowserRouter([
@@ -62,6 +70,11 @@ const appRouter = createBrowserRouter([
   {
     path: "/restaurants/:resId",
     element: <RestauarntMenu />,
+  },
+
+  {
+    path: "/cart",
+    element: <Cart />,
   },
 
     ],
